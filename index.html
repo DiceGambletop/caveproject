@@ -3,76 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Publication | [Your Essay Title]</title>
+    <title>caves i guess</title>
     
     <!-- Loading Montserrat (the best free version of Avenir Next) -->
     <link href="https://googleapis.com" rel="stylesheet">
 
     <style>
-        /* Base styles for that "Avenir" look */
-        body {
-            background-color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
-            color: #1a1a2e;
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
-            letter-spacing: -0.01em;
-        }
+    /* The deep blue-tinted dark mode */
+    body {
+        background-color: #0d1117; /* GitHub's signature dark blue-grey */
+        font-family: 'Montserrat', sans-serif;
+        color: #c9d1d9; /* Off-white text for better readability */
+        margin: 0;
+        padding: 0;
+        line-height: 1.8;
+    }
 
-        /* The Article Container */
-        article {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
+    /* This targets your existing container and styles it for dark mode */
+    article, .essay-container {
+        background: #161b22; /* Slightly lighter blue-tinted box */
+        max-width: 720px;
+        margin: 40px auto;
+        padding: 60px;
+        border: 1px solid #30363d; /* Subtle border for definition */
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
 
-        /* Professional "Hero" Header */
-        header {
-            text-align: left;
-            margin-bottom: 60px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 40px;
-        }
+    /* Headings in vibrant white to pop against the dark blue */
+    h1, h2, h3 {
+        color: #f0f6fc;
+        font-weight: 700;
+        line-height: 1.2;
+    }
 
-        h1 {
-            font-weight: 700;
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 15px;
-            color: #000;
-        }
+    h1 { font-size: 3rem; margin-bottom: 20px; }
 
-        .byline {
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-size: 0.85rem;
-            color: #669;
-        }
-        p {
-            font-weight: 300; /* Light weight for that premium feel */
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
+    /* The blue-tinted accent for your byline or links */
+    .byline, .metadata {
+        color: #58a6ff; /* Electric blue accent */
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+    }
 
-        /* Bold sub-headers */
-        h2 {
-            font-weight: 700;
-            font-size: 1.8rem;
-            margin-top: 50px;
-            margin-bottom: 10px;
-        }
-    </style>
+    /* Professional "Magazine" Drop Cap adjusted for dark mode */
+    .intro::first-letter {
+        float: left;
+        font-size: 5rem;
+        line-height: 0.8;
+        font-weight: 700;
+        padding-right: 15px;
+        color: #58a6ff;
+    }
+
+    p {
+        font-weight: 300;
+        font-size: 1.15rem;
+        margin-bottom: 25px;
+    }
+</style>
 </head>
 
 
 <body>
     <article>
         <header>
-            <p class="byline">By: Rex Tang (Dice Gambletop) | Publish Date: May 22, 2026</p>
+            <p class="byline">Publish Date: May 22, 2026</p>
             <h1>7th grader's analasys of caverns - its cool ig idk</h1>
-            <p class="byline">By [Your Name]</p>
+            <p class="byline">By: Rex Tang (Dice Gambletop)</p>
         </header>
 
         <p class="intro">
