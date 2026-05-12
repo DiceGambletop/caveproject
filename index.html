@@ -31,6 +31,30 @@
         -webkit-font-smoothing: antialiased;
     }
 
+    /* Navbar Styling */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: rgba(13, 17, 23, 0.95);
+        border-bottom: 1px solid #30363d;
+        display: flex;
+        align-items: center;
+        padding: 0 40px;
+        z-index: 1000;
+        backdrop-filter: blur(5px);
+    }
+
+    .nav-logo {
+        font-weight: bold;
+        font-style: italic;
+        font-size: 1.2rem;
+        color: #f0f6fc;
+        letter-spacing: 0.1em;
+    }
+
     article {
         background: rgba(13, 17, 23, 0.9);
         max-width: 700px; /* Slightly narrower makes the text wrap more */
@@ -64,6 +88,10 @@
 
 
 <body>
+    <nav>
+        <div class="nav-logo">DICE GAMBLETOP</div>
+    </nav>
+
     <article>
         <header>
             <p class="byline">Publish Date: May 22, 2026</p>
