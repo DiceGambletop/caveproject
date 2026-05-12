@@ -3,15 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
+    <title>My School Essay</title>
+    
     <style>
-        body { font-family: sans-serif; text-align: center; padding-top: 50px; }
+        /* This sets the background color and centers your essay */
+        body {
+            background-color: #f4f7f6; /* Light grey background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* This creates a white "paper" look for your essay */
+        .essay-container {
+            background: white;
+            max-width: 800px;
+            padding: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Soft shadow */
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db; /* Blue underline */
+            padding-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* This makes your name or date look like a subheader */
+        .metadata {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Welcome to My GitHub Website</h1>
-    <p>This page was built with HTML and is hosted on GitHub Pages!</p>
+    <div class="essay-container">
+        <h1>Your Essay Title Here</h1>
+        <p class="metadata">By: [Your Name] | Date: May 2026</p>
+
+        <p>Start your first paragraph here. Because of the CSS above, this text will look clean, spaced out, and easy for your teacher to read!</p>
+
+        <p>Add more paragraphs as needed. The "box-shadow" in the CSS makes this whole section pop off the screen like a real piece of paper.</p>
+    </div>
 
 </body>
 </html>
