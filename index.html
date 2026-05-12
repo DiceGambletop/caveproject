@@ -8,60 +8,69 @@
     <!-- Loading Montserrat (the best free version of Avenir Next) -->
     <link href="https://googleapis.com" rel="stylesheet">
 
-    <style>
-    /* The deep blue-tinted dark mode */
+  <style>
+    /* Dark Mode with a Tiling Background */
     body {
-        background-color: #0d1117; /* GitHub's signature dark blue-grey */
+        background-color: #0d1117;
+        /* This creates a subtle tiling grid pattern */
+        background-image: 
+            linear-gradient(#161b22 1px, transparent 1px),
+            linear-gradient(90deg, #161b22 1px, transparent 1px);
+        background-size: 40px 40px; 
         font-family: 'Montserrat', sans-serif;
-        color: #c9d1d9; /* Off-white text for better readability */
+        color: #c9d1d9;
         margin: 0;
-        padding: 0;
+        padding-top: 100px; /* Space for the top bar */
         line-height: 1.8;
     }
 
-    /* This targets your existing container and styles it for dark mode */
-    article, .essay-container {
-        background: #161b22; /* Slightly lighter blue-tinted box */
-        max-width: 720px;
-        margin: 40px auto;
+    .top-bar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(22, 27, 34, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #30363d;
+        padding: 15px 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    article {
+        background: #0d1117;
+        max-width: 750px;
+        margin: 0 auto 50px auto;
         padding: 60px;
-        border: 1px solid #30363d; /* Subtle border for definition */
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        border-left: 1px solid #30363d;
+        border-right: 1px solid #30363d;
     }
 
-    /* Headings in vibrant white to pop against the dark blue */
-    h1, h2, h3 {
-        color: #f0f6fc;
-        font-weight: 700;
-        line-height: 1.2;
-    }
-
-    h1 { font-size: 3rem; margin-bottom: 20px; }
-
-    /* The blue-tinted accent for your byline or links */
-    .byline, .metadata {
-        color: #58a6ff; /* Electric blue accent */
-        text-transform: uppercase;
-        font-size: 0.85rem;
-        letter-spacing: 0.1em;
-    }
-
-    /* Professional "Magazine" Drop Cap adjusted for dark mode */
-    .intro::first-letter {
-        float: left;
-        font-size: 5rem;
-        line-height: 0.8;
-        font-weight: 700;
-        padding-right: 15px;
-        color: #58a6ff;
-    }
-
+    /* Standard paragraph style (No more large first letter) */
     p {
         font-weight: 300;
         font-size: 1.15rem;
         margin-bottom: 25px;
     }
+
+    /* Image Styling */
+    .essay-image {
+        width: 100%;
+        border-radius: 8px;
+        margin: 30px 0;
+        border: 1px solid #30363d;
+    }
+
+    .image-caption {
+        text-align: center;
+        font-size: 0.9rem;
+        color: #8b949e;
+        margin-top: -20px;
+        margin-bottom: 30px;
+        font-style: italic;
+    }
+
+    h1 { color: #f0f6fc; font-size: 3rem; }
+    .byline { color: #58a6ff; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
 </style>
 </head>
 
