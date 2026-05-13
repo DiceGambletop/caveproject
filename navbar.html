@@ -1,58 +1,69 @@
 <!-- NAVBAR COMPONENT -->
 <style>
+  :root {
+    --bg-dark: #0d1117;
+    --border-color: #30363d;
+    --text-main: #c9d1d9;
+    --text-bright: #f0f6fc;
+    --accent-blue: #58a6ff;
+    --dropdown-bg: #161b22;
+  }
+
   nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 60px;
+    height: 65px;
     background: rgba(13, 17, 23, 0.85);
-    border-bottom: 1px solid #30363d;
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: 0 10%; /* Matches common article padding */
     z-index: 1000;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px);
+    font-family: 'Inter', sans-serif;
   }
 
   .nav-logo {
-    font-weight: bold;
-    font-style: italic;
-    font-size: 1.2rem;
-    color: #f0f6fc;
-    letter-spacing: 0.1em;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-bright);
+    letter-spacing: 0.15em;
     text-decoration: none;
-    transition: 0.2s;
+    transition: 0.3s;
   }
 
   .nav-logo:hover {
-    color: #58a6ff;
-    text-shadow: 0 0 8px #58a6ff;
+    color: var(--accent-blue);
   }
 
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
   }
 
-  .nav-links button {
+  /* Style for both dropdown triggers and regular links */
+  .nav-item {
     background: none;
     border: none;
-    color: #c9d1d9;
-    font-size: 1rem;
-    font-weight: 300;
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
     cursor: pointer;
+    text-decoration: none;
     transition: 0.2s;
+    padding: 8px 0;
   }
 
-  .nav-links button:hover {
-    color: #58a6ff;
-    text-shadow: 0 0 6px #58a6ff;
+  .nav-item:hover {
+    color: var(--accent-blue);
   }
 
-  /* DROPDOWNS */
+  /* DROPDOWN LOGIC */
   .dropdown {
     position: relative;
   }
@@ -60,42 +71,51 @@
   .dropdown-menu {
     display: none;
     position: absolute;
-    top: 40px;
+    top: 45px;
     right: 0;
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 6px;
-    padding: 10px 0;
-    min-width: 150px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    background: var(--dropdown-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 0;
+    min-width: 180px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
   }
 
   .dropdown-menu a {
     display: block;
     padding: 10px 20px;
-    color: #c9d1d9;
+    color: var(--text-main);
     text-decoration: none;
+    font-size: 0.9rem;
     transition: 0.2s;
   }
 
   .dropdown-menu a:hover {
     background: #1f6feb33;
-    color: #58a6ff;
+    color: var(--accent-blue);
   }
 
-  /* RAINBOW MODE */
+  /* RAINBOW JACKPOT */
   .rainbow {
-    animation: rainbow 2s linear infinite;
+    animation: rainbow-bg 2s linear infinite;
+    border-bottom: 2px solid white;
   }
 
-  @keyframes rainbow {
-    0% { background: #ff0000; }
-    16% { background: #ff7f00; }
-    33% { background: #ffff00; }
-    50% { background: #00ff00; }
-    66% { background: #0000ff; }
-    83% { background: #4b0082; }
-    100% { background: #9400d3; }
+  @keyframes rainbow-bg {
+    0% { background: #ff0000cc; }
+    20% { background: #ffff00cc; }
+    40% { background: #00ff00cc; }
+    60% { background: #00ffffcc; }
+    80% { background: #0000ffcc; }
+    100% { background: #ff00ffcc; }
+  }
+
+  /* Offset for the article so it doesn't hide under the fixed nav */
+  body {
+    padding-top: 80px;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    margin: 0;
   }
 </style>
 
@@ -103,69 +123,65 @@
   <a href="/" class="nav-logo">DICE GAMBLETOP</a>
 
   <div class="nav-links">
-
-    <!-- SCHOOLWORK -->
+    <!-- DROPDOWN: SCHOOLWORK -->
     <div class="dropdown">
-      <button onclick="toggleDropdown('school')">Schoolwork</button>
+      <button class="nav-item" onclick="toggleDropdown('school')">Schoolwork ▾</button>
       <div id="school" class="dropdown-menu">
-        <a href="#">Placeholder 1</a>
-        <a href="#">Placeholder 2</a>
-        <a href="#">Placeholder 3</a>
+        <a href="#">Cave Analysis</a>
+        <a href="#">Mathematics</a>
+        <a href="#">History Notes</a>
       </div>
     </div>
 
-    <!-- PERSONAL -->
+    <!-- DROPDOWN: PERSONAL -->
     <div class="dropdown">
-      <button onclick="toggleDropdown('personal')">Personal</button>
+      <button class="nav-item" onclick="toggleDropdown('personal')">Personal ▾</button>
       <div id="personal" class="dropdown-menu">
-        <a href="#">Placeholder 1</a>
-        <a href="#">Placeholder 2</a>
-        <a href="#">Placeholder 3</a>
+        <a href="#">My Setup</a>
+        <a href="#">Gaming</a>
+        <a href="#">Photography</a>
       </div>
     </div>
 
-    <!-- EXPERIMENTS -->
-    <div class="dropdown">
-      <button onclick="toggleDropdown('experiments')">Experiments</button>
-      <div id="experiments" class="dropdown-menu">
-        <a href="#">Placeholder 1</a>
-        <a href="#">Placeholder 2</a>
-        <a href="#">Placeholder 3</a>
-      </div>
-    </div>
+    <!-- LINK: EXPERIMENTS -->
+    <a href="/experiments" class="nav-item">Experiments</a>
 
-    <!-- GAMBLING (RAINBOW CHANCE) -->
-    <button onclick="gamble()">Gambling</button>
-
+    <!-- ACTION: GAMBLING -->
+    <button class="nav-item" onclick="gamble()" style="font-weight: 700; color: #f85149;">Gamble</button>
   </div>
 </nav>
 
 <script>
   function toggleDropdown(id) {
+    // Close other menus
     document.querySelectorAll('.dropdown-menu').forEach(menu => {
-      if (menu.id === id) {
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-      } else {
-        menu.style.display = 'none';
-      }
+      if (menu.id !== id) menu.style.display = 'none';
     });
+    
+    // Toggle selected menu
+    const current = document.getElementById(id);
+    current.style.display = (current.style.display === 'block') ? 'none' : 'block';
   }
 
   function gamble() {
     const navbar = document.getElementById('navbar');
-    const chance = Math.floor(Math.random() * 100) + 1;
+    // 1 in 100 chance
+    const win = Math.floor(Math.random() * 100) === 7; 
 
-    if (chance === 1) {
+    if (win) {
       navbar.classList.add('rainbow');
-      alert("🎉 JACKPOT! You hit the 1/100 rainbow navbar!");
+      alert("🎉 JACKPOT! The cave glows with unnatural light!");
     } else {
-      alert("No luck this time.");
+      alert("The dice roll... but the cave remains dark. Try again.");
     }
   }
 
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.dropdown')) {
-      document.querySelectorAll('.dropdown-menu').forEach(menu => menu.style.display = 'none');
+  // Close dropdowns if user clicks outside
+  window.addEventListener('click', function(e) {
+    if (!e.target.matches('.nav-item')) {
+      document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        menu.style.display = 'none';
+      });
     }
   });
 </script>
