@@ -1,22 +1,21 @@
 <!-- DICE GAMBLETOP NAV COMPONENT -->
 <style>
-  /* Root variables updated for a "Blue-Steel" aesthetic */
   :root {
-    --nav-bg: rgba(10, 13, 18, 0.9); /* Deep Navy */
-    --nav-border: #1f2937; /* Steel Blue Border */
-    --nav-text: #b1bac4; /* Soft Grey-Blue */
-    --nav-text-bright: #58a6ff; /* Primary Blue */
-    --nav-hover-blue: #79c0ff; /* Light Luminous Blue */
-    --nav-dropdown-bg: #0d1117;
+    --nav-bg: rgba(10, 13, 18, 0.85);
+    --nav-border: rgba(255, 255, 255, 0.08);
+    --nav-text: #9ca3af;
+    --nav-text-bright: #60a5fa;
+    --nav-hover-blue: #3b82f6;
+    --nav-dropdown-bg: #0f172a;
+    --accent-glow: rgba(59, 130, 246, 0.5);
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Reset for nav context using Century Gothic */
   #dg-navbar * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* Century Gothic applied as the primary font */
-    font-family: 'Century Gothic', AppleGothic, 'Avant Garde', sans-serif;
+    font-family: 'Century Gothic', 'Segoe UI', sans-serif;
   }
 
   #dg-navbar {
@@ -24,38 +23,39 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 60px;
+    height: 64px;
     background: var(--nav-bg);
     border-bottom: 1px solid var(--nav-border);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: 0 5%;
     z-index: 9999;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 
-  /* Logo Styling - Geometric & Blue */
+  /* Logo Styling */
   .nav-logo {
-    font-weight: 400; /* Century Gothic looks better at lower weights */
-    font-size: 1.1rem;
-    color: var(--nav-text-bright);
-    letter-spacing: 0.2em;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: 0.15em;
     text-decoration: none;
-    transition: color 0.3s, text-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
-  .nav-logo:hover {
-    color: var(--nav-hover-blue);
-    text-shadow: 0 0 8px rgba(88, 166, 255, 0.4);
+  .nav-logo span {
+    color: var(--nav-text-bright);
   }
 
   /* Links Container */
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 32px;
   }
 
   /* Link Style */
@@ -63,78 +63,129 @@
     background: none;
     border: none;
     color: var(--nav-text);
-    font-size: 0.85rem;
-    font-weight: 400;
+    font-size: 0.9rem;
+    font-weight: 500;
     text-decoration: none;
     cursor: pointer;
-    transition: 0.2s;
+    transition: var(--transition);
     display: flex;
     align-items: center;
     gap: 6px;
-    letter-spacing: 0.05em;
+    position: relative;
+    padding: 8px 0;
+  }
+
+  /* Hover Underline Effect */
+  .nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--nav-text-bright);
+    transition: var(--transition);
   }
 
   .nav-item:hover {
-    color: var(--nav-hover-blue);
+    color: #fff;
   }
 
-  /* Dropdown Logic */
+  .nav-item:hover::after {
+    width: 100%;
+  }
+
+  /* Dropdown Menu */
   .dropdown {
     position: relative;
   }
 
   .dropdown-menu {
-    display: none; 
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
     position: absolute;
-    top: 40px;
-    right: 0;
+    top: 50px;
+    right: -20px;
     background: var(--nav-dropdown-bg);
     border: 1px solid var(--nav-border);
-    border-radius: 4px;
-    padding: 8px 0;
-    min-width: 180px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    border-radius: 12px;
+    padding: 12px;
+    min-width: 200px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: var(--transition);
+  }
+
+  .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
   .dropdown-menu a {
     display: block;
-    padding: 10px 20px;
+    padding: 10px 16px;
     color: var(--nav-text);
     text-decoration: none;
-    font-size: 0.8rem;
-    transition: all 0.2s;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    transition: var(--transition);
   }
 
   .dropdown-menu a:hover {
-    background: rgba(88, 166, 255, 0.1);
-    color: var(--nav-hover-blue);
-    padding-left: 24px; /* Slight slide effect */
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--nav-text-bright);
+    transform: translateX(5px);
   }
 
-  /* Rainbow Animation for Jackpot - Shifted to blue-purple spectrum */
+  /* The Gamble Button CTA */
+  .gamble-btn {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  }
+
+  .gamble-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+    filter: brightness(1.1);
+  }
+
+  .gamble-btn:active {
+    transform: translateY(0);
+  }
+
+  /* Jackpot Animation */
   .rainbow-mode {
-    animation: blue-glow 1.5s linear infinite;
+    animation: blue-glow 1.5s infinite;
+    border-bottom: 2px solid #60a5fa !important;
   }
 
   @keyframes blue-glow {
-    0% { border-bottom-color: #58a6ff; box-shadow: 0 0 15px rgba(88, 166, 255, 0.4); }
-    50% { border-bottom-color: #bc8cff; box-shadow: 0 0 15px rgba(188, 140, 255, 0.4); }
-    100% { border-bottom-color: #58a6ff; box-shadow: 0 0 15px rgba(88, 166, 255, 0.4); }
+    0%, 100% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.4); }
+    50% { box-shadow: 0 0 40px rgba(167, 139, 250, 0.6); }
   }
 
-  /* Small arrow icon */
   .arrow {
-    font-size: 0.6rem;
-    opacity: 0.5;
+    font-size: 0.7rem;
+    transition: transform 0.3s;
+  }
+  
+  .show + .arrow {
+    transform: rotate(180deg);
   }
 </style>
 
 <nav id="dg-navbar">
-  <a href="/" class="nav-logo">DICE GAMBLETOP</a>
+  <a href="/" class="nav-logo">DICE <span>GAMBLETOP</span></a>
 
   <div class="nav-links">
     <div class="dropdown">
-      <button class="nav-item" onclick="toggleDropdown('school-drop')">
+      <button class="nav-item" onclick="toggleDropdown(event, 'school-drop')">
         Schoolwork <span class="arrow">▼</span>
       </button>
       <div id="school-drop" class="dropdown-menu">
@@ -145,7 +196,7 @@
     </div>
 
     <div class="dropdown">
-      <button class="nav-item" onclick="toggleDropdown('personal-drop')">
+      <button class="nav-item" onclick="toggleDropdown(event, 'personal-drop')">
         Personal <span class="arrow">▼</span>
       </button>
       <div id="personal-drop" class="dropdown-menu">
@@ -157,20 +208,25 @@
 
     <a href="/experiments" class="nav-item">Experiments</a>
 
-    <!-- Highlighted Gamble Button -->
-    <button class="nav-item" onclick="gambleClick()" style="color: #58a6ff; font-weight: 600; border: 1px solid rgba(88,166,255,0.3); padding: 5px 12px; border-radius: 4px;">
+    <button class="nav-item gamble-btn" onclick="gambleClick()">
       Gamble
     </button>
   </div>
 </nav>
 
 <script>
-  function toggleDropdown(id) {
+  function toggleDropdown(event, id) {
+    event.stopPropagation();
     const menu = document.getElementById(id);
-    const isVisible = menu.style.display === 'block';
+    const isVisible = menu.classList.contains('show');
     
-    document.querySelectorAll('.dropdown-menu').forEach(dm => dm.style.display = 'none');
-    menu.style.display = isVisible ? 'none' : 'block';
+    // Close all menus
+    document.querySelectorAll('.dropdown-menu').forEach(dm => dm.classList.remove('show'));
+    
+    // Toggle requested menu
+    if (!isVisible) {
+      menu.classList.add('show');
+    }
   }
 
   function gambleClick() {
@@ -185,9 +241,8 @@
     }
   }
 
-  window.addEventListener('click', (e) => {
-    if (!e.target.closest('.dropdown')) {
-      document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
-    }
+  // Close menus when clicking outside
+  window.addEventListener('click', () => {
+    document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
   });
 </script>
